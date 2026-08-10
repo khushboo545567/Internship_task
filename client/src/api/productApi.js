@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/api/v1/products";
-
 export const getProducts = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/get-products`);
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_URL}/get-products`,
+    );
     return response.data.products;
   } catch (error) {
     console.error("Error adding product:", error);
@@ -15,7 +15,10 @@ export const getProducts = async () => {
 // Add a new product
 export const addProduct = async (productData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/add`, productData);
+    const response = await axios.post(
+      `${import.meta.env.VITE_SERVER_URL}/add`,
+      productData,
+    );
     return response.data.product;
   } catch (error) {
     console.error("Error adding product:", error);
@@ -26,7 +29,10 @@ export const addProduct = async (productData) => {
 // Update product
 export const updateProduct = async (id, productData) => {
   try {
-    const response = await axios.put(`${BASE_URL}/update/${id}`, productData);
+    const response = await axios.put(
+      `${import.meta.env.VITE_SERVER_URL}/update/${id}`,
+      productData,
+    );
     return response.data.product;
   } catch (error) {
     console.error("Error updating product:", error);
@@ -37,7 +43,9 @@ export const updateProduct = async (id, productData) => {
 // Delete  product
 export const deleteProduct = async (id) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/delete/${id}`);
+    const response = await axios.delete(
+      `${import.meta.env.VITE_SERVER_URL}/delete/${id}`,
+    );
     return response.data;
   } catch (error) {
     console.error("Error deleting product:", error);
@@ -48,9 +56,12 @@ export const deleteProduct = async (id) => {
 // Sort by price
 export const sortByPrice = async (order = "asc") => {
   try {
-    const response = await axios.get(`${BASE_URL}/sort-by-price`, {
-      params: { order },
-    });
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_URL}/sort-by-price`,
+      {
+        params: { order },
+      },
+    );
     return response.data.products;
   } catch (error) {
     console.error("Error sorting by price:", error);
@@ -61,9 +72,12 @@ export const sortByPrice = async (order = "asc") => {
 // Sort by stock
 export const sortByStock = async (order = "asc") => {
   try {
-    const response = await axios.get(`${BASE_URL}/sort-by-stock`, {
-      params: { order },
-    });
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_URL}/sort-by-stock`,
+      {
+        params: { order },
+      },
+    );
     return response.data.products;
   } catch (error) {
     console.error("Error sorting by stock:", error);
@@ -74,9 +88,12 @@ export const sortByStock = async (order = "asc") => {
 // Filter by category
 export const filterByCategory = async (category) => {
   try {
-    const response = await axios.get(`${BASE_URL}/filter-by-category`, {
-      params: { category },
-    });
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_URL}/filter-by-category`,
+      {
+        params: { category },
+      },
+    );
     return response.data.products;
   } catch (error) {
     console.error("Error filtering by category:", error);
@@ -87,9 +104,12 @@ export const filterByCategory = async (category) => {
 // Filter by status
 export const filterByStatus = async (status) => {
   try {
-    const response = await axios.get(`${BASE_URL}/filter-by-status`, {
-      params: { status },
-    });
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_URL}/filter-by-status`,
+      {
+        params: { status },
+      },
+    );
     return response.data.products;
   } catch (error) {
     console.error("Error filtering by status:", error);

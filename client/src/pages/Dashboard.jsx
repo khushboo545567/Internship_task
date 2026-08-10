@@ -116,10 +116,6 @@ function Dashboard() {
       <div className="mt-6 rounded-xl bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
         <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-semibold sm:text-xl">Recent Orders</h2>
-
-          <button className="self-start text-sm font-medium text-blue-600 hover:underline sm:self-auto">
-            View All
-          </button>
         </div>
 
         <div className="overflow-x-auto">

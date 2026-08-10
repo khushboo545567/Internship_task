@@ -2,7 +2,9 @@ import axios from "axios";
 
 export const getOrders = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/api/v1/orders/get");
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_URL}/api/v1/orders/get`,
+    );
     return response.data.orders;
   } catch (error) {
     console.error("Error fetching orders:", error);
@@ -13,7 +15,7 @@ export const getOrders = async () => {
 export const updateOrderStatus = async (id, status) => {
   try {
     const response = await axios.patch(
-      `http://localhost:3000/api/v1/orders/update/${id}`,
+      `${import.meta.env.VITE_SERVER_URL}/api/v1/orders/update/${id}`,
       { status },
     );
     return response.data.order;

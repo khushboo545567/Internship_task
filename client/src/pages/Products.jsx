@@ -61,6 +61,7 @@ function Products() {
     }
   };
 
+  // ///////////////
   // ---- Search + Filter + Sort
   const displayedProducts = useMemo(() => {
     let result = [...products];

@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchDashboardStats = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:3000/api/v1/dashboard/stats",
+      `${import.meta.env.VITE_SERVER_URL}/api/v1/dashboard/stats`,
     );
     return response.data.stats;
   } catch (error) {
@@ -15,7 +15,7 @@ export const fetchDashboardStats = async () => {
 export const getRecentOrders = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:3000/api/v1/orders/get-recent-order",
+      `${import.meta.env.VITE_SERVER_URL}/api/v1/orders/get-recent-order`,
     );
     return response.data.orders;
   } catch (error) {
